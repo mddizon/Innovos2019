@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.LedOff;
@@ -23,9 +23,9 @@ public class OI {
   //// joystick.
   // You create one by telling it which joystick it's on and which button
   // number it is.
-  Joystick stick = new Joystick(RobotMap.joystickPort);
-  Button button1 = new JoystickButton(stick, 1);
-  Button button2 = new JoystickButton(stick, 2);
+  XboxController controller = new XboxController(RobotMap.joystickPort);
+  Button button1 = new JoystickButton(controller, 1);
+  Button button2 = new JoystickButton(controller, 2);
 
 
   public OI() {
@@ -33,10 +33,9 @@ public class OI {
     button2.whenPressed(new LedOff());
   }
 
-  public Joystick getJoystick() {
-    return stick;
+  public XboxController getJoystick() {
+    return controller;
   }
-
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to

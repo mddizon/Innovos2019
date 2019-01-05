@@ -14,12 +14,15 @@ import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Gyro;
 import frc.robot.subsystems.Led;
 
 /**
@@ -44,7 +47,6 @@ public class Robot extends IterativeRobot {
    */
   @Override
   public void robotInit() {
-    System.out.println("Hello World");
     m_oi = new OI();
 
     new Thread(() -> {
@@ -62,7 +64,7 @@ public class Robot extends IterativeRobot {
           Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
           outputStream.putFrame(output);
       }
-  }).start();
+    }).start();
   }
 
   /**
